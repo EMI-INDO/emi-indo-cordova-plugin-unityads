@@ -26,9 +26,9 @@
 - Interstitial ads
 - Video ads
 
-- banner position (Coming soon)
-- banner size (Coming soon)
-
+## Coming soon
+- Set banner position
+- Set banner size
 
 ## Installation
 
