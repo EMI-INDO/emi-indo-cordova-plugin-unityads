@@ -1,0 +1,112 @@
+<html>
+<head>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+
+<script>
+
+
+var unityGameID = "5215769"
+var bannerPlacementId = "Banner_Android"
+var InterstitialPlacementId = "Interstitial"
+var videoPlacementId = "Rewarded_Android"
+
+
+document.addEventListener("deviceready", function(){
+
+/////////////////////   Initializing the SDK
+	cordova.plugins.emiUnityAdsPlugin.unitySdkInitialize(unityGameID);
+
+
+/////////////////////  Event Initializing the SDK
+
+document.addEventListener('onInitializationComplete', () => {
+
+alert("on Sdk Initialization Complete");
+
+});
+
+document.addEventListener('onInitializationFailed', () => {
+
+alert("on Sdk Initialization Failed");
+
+});
+
+
+
+
+
+////     Event Banner Ad load
+
+document.addEventListener('onBannerLoaded', () => {
+
+alert("on Banner Loaded");
+
+});
+
+
+document.addEventListener('onBannerFailedToLoad', () => {
+
+alert("on Banner Failed To Load");
+
+});
+
+
+
+
+
+////     Event Interstitial Ad load
+
+document.addEventListener('onUnityAdsAdLoaded.Interstitial', () => {
+
+alert("on Unity Ads Ad Loaded Interstitial");
+
+});
+
+
+document.addEventListener('onUnityAdsFailedToLoad.Interstitial', () => {
+
+alert("on Unity Ads Failed To Load Interstitial");
+
+});
+
+
+
+
+
+
+
+////     Event Video Ad load
+
+document.addEventListener('onUnityAdsAdLoaded.video', () => {
+
+alert("on Unity Ads Ad Loaded video");
+
+});
+
+
+document.addEventListener('onUnityAdsFailedToLoad.video', () => {
+
+alert("on Unity Ads Failed To Load video");
+
+});
+
+
+
+
+
+}, false);
+</script>
+
+<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showBannerAd(bannerPlacementId);">Load a Show Banner Ad</button></p>
+<p><button onclick="cordova.plugins.emiUnityAdsPlugin.hideBannerAd();">Hide Banner Ad</button></p>
+
+<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showInterstitialAd(InterstitialPlacementId);"> Load a Show Interstitial Ad</button></p>
+
+
+<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showVideoAd(videoPlacementId);"> Show Video Ad</button></p>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "emi-indo-cordova-plugin-unityads",
+  "version": "0.0.1",
+  "cordova": {
+    "id": "emi-indo-cordova-plugin-unityads",
+    "platforms": []
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
