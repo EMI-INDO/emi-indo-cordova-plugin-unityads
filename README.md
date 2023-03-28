@@ -26,6 +26,9 @@
 - Interstitial ads
 - Video ads
 
+- banner position (Coming soon)
+- banner size (Coming soon)
+
 
 ## Installation
 
