@@ -34,6 +34,9 @@ https://user-images.githubusercontent.com/78555833/228381348-15b92a53-0e24-437d-
 - Set banner position
 - Set banner size
 
+## 💰Sponsor this project
+  [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/emiindo)
+
 ## Installation
 
 ```sh
@@ -50,6 +53,8 @@ cordova plugin rm emi-indo-cordova-plugin-unityads
 
 
 ## deviceready
+
+[Example ](https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads/blob/main/example/index.html) - index.html:
 
 ```sh
 // Initializing the SDK in Android
@@ -158,7 +163,8 @@ alert("on Banner Loaded");
 - onUnityAdsShowComplete.video
 
 
-
+### Platform Support
+- Android
 
 ## 💰Sponsor this project
   [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/emiindo)                     

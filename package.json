@@ -3,12 +3,31 @@
   "version": "0.0.1",
   "cordova": {
     "id": "emi-indo-cordova-plugin-unityads",
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   },
   "keywords": [
-    "ecosystem:cordova"
+    "ecosystem:cordova",
+    "cordova-android",
+    "javascript",
+    "admob",
+    "Unity",
+    "cordova-plugin-Unity",
+    "cordova-plugin-Unity-ads",
+    "facebook",
+    "cordova-plugin-Unity-ads-free",
+    "construct-3"
+    
   ],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "EMI INDO",
+  "license": "MIT",
+"repository": {
+    "type": "git",
+    "url": "git+https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads/issues"
+  },
+  "homepage": "https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads"
 }
