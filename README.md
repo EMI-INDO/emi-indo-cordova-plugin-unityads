@@ -3,8 +3,6 @@
 ### Unity Ads SDK (Android: 4.5.0)
 
 
-> __Warning__
-> - ## This plugin is still BETA (in progress).
 
   > __Note__
 > - ## It's Not a fork, it's purely rewritten, clean of 3rd party code.
