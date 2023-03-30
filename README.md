@@ -24,9 +24,9 @@ https://user-images.githubusercontent.com/78555833/228381348-15b92a53-0e24-437d-
 
  ## Features
 
-- Banner ads
-- Interstitial ads
-- Video ads
+- Banner Ads
+- Interstitial Ads
+- Video Ads
 
 ## Coming soon
 - Set banner position
@@ -122,7 +122,7 @@ alert("on Banner Loaded");
 
 ```
 
-## ( Banner ads )
+## ( Banner Ads )
 
 ### Event Show a load
 
@@ -134,7 +134,7 @@ alert("on Banner Loaded");
 
 
 
-## ( Interstitial ads )
+## ( Interstitial Ads )
 
 ### Event Load a Show
 
@@ -148,7 +148,7 @@ alert("on Banner Loaded");
 
 
 
-## ( Video ads )
+## ( Video Ads )
 
 ### Event Load a Show
 
