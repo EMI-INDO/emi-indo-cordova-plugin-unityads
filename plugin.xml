@@ -6,7 +6,7 @@ version="0.0.1">
 <name>emiUnityAdsPlugin</name>
   <description>Welcome to Cordova Plugin Unity Ads</description>
 	<author>EMI INDO</author>
-	<license>MIT</license>
+	<license>ISC</license>
   
 <js-module src="www/emiUnityAdsPlugin.js" name="emiUnityAdsPlugin">
 <clobbers target="cordova.plugins.emiUnityAdsPlugin"/>
