@@ -12,10 +12,6 @@ version="0.0.1">
     <clobbers target="cordova.plugins.emiUnityAdsPlugin"/>
    </js-module>
 
-   <engines>
-        <engine name="cordova" version=">=7.0.0" />
-        <engine name="cordova-android" version=">=6.0.0" />
-   </engines>
 
   <platform name="android">
 
