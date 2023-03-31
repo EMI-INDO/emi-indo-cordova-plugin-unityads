@@ -29,7 +29,7 @@ version="0.0.1">
 <config-file parent="/*" target="AndroidManifest.xml"/>
 <source-file src="src/android/emiUnityAdsPlugin.java" target-dir="src/emi/indo/cordova/plugin/unityads"/>
 
-<framework src="com.unity3d.ads:unity-ads:4.5.0" />
+<framework src="com.unity3d.ads:unity-ads:4.6.1" />
 
 </platform>
 </plugin>
