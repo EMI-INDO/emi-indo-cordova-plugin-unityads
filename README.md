@@ -63,7 +63,7 @@ cordova.plugins.emiUnityAdsPlugin.unitySdkInitialize(unityGameID);
 
 var unityGameID = "5215769"
 var bannerPlacementId = "Banner_Android"
-var InterstitialPlacementId = "Interstitial"
+var InterstitialPlacementId = "Interstitial_Android"
 var videoPlacementId = "Rewarded_Android"
 
 ////////////////////  Event Initializing the SDK
