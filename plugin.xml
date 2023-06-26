@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
 xmlns:android="http://schemas.android.com/apk/res/android" 
 id="emi-indo-cordova-plugin-unityads" 
-version="0.0.2">
+version="0.0.3">
   
 <name>emiUnityAdsPlugin</name>
   <description>Welcome to Cordova Plugin Unity Ads</description>
@@ -13,23 +13,49 @@ version="0.0.2">
 </js-module>
   
    <engines>
-        <engine name="cordova" version=">=7.0.0" />
-        <engine name="cordova-android" version=">=6.0.0" />
-   </engines>
+		<engine name="cordova"
+		        version=">=10.0.0"/>
+		<engine name="cordova-android"
+		        version=">=11.0.0"/>
+		
+	</engines>
   
 <platform name="android">
+
+<preference name="UNITY_ADS_SDK" default="4.5.0"/>
   
 <config-file parent="/*" target="res/xml/config.xml">
   
 <feature name="emiUnityAdsPlugin">
 <param name="android-package" value="emi.indo.cordova.plugin.unityads.emiUnityAdsPlugin"/>
 </feature>
+
+<config-file target="AndroidManifest.xml" parent="/*">		
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+</config-file>  
+
+<config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <activity
+            android:name="com.unity3d.ads.adunit.AdUnitActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+       
+        <activity
+            android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:hardwareAccelerated="false"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    </config-file> 
   
 </config-file>
 <config-file parent="/*" target="AndroidManifest.xml"/>
 <source-file src="src/android/emiUnityAdsPlugin.java" target-dir="src/emi/indo/cordova/plugin/unityads"/>
 
-<framework src="com.unity3d.ads:unity-ads:4.5.0" />
+
+
+		<framework src="com.unity3d.ads:unity-ads:$UNITY_ADS_SDK"/>
 
 </platform>
 </plugin>

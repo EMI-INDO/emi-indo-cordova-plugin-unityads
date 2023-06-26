@@ -4,32 +4,218 @@
 </head>
 <body>
 
+<label for="event">Plugin Event Callback :</label>
+<textarea id="event" name="event" rows="5" cols="40"></textarea>
+
+
 <script>
 
+   let event = document.getElementById('event');
 
-var unityGameID = "5215769"
-var bannerPlacementId = "Banner_Android"
-var InterstitialPlacementId = "Interstitial"
-var videoPlacementId = "Rewarded_Android"
+   let cleanText = () => { event.value = '' };
 
+
+/*
+
+>>>>>  Minimum Cordova Engines <<<<<<<
+
+cordova version = 10.0.0
+cordova-android version = 11.0.0
+
+
+  >>> Add Plugin <<<
+  >>> Default SDK Version: 4.5.0 <<<
+  cordova plugin add https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads
+
+   >>> Add Plugin update SDK with variable  <<<
+   >>> Android target 13 | SdkTarget 33  <<<
+  cordova plugin add https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads --variable UNITY_ADS_SDK=4.7.0
+
+
+*/
+
+
+
+let _setPrivacyAndConsent = () =>
+{
+
+
+    // https://docs.unity3d.com/Packages/com.unity.ads@3.4/manual/LegalDataPrivacy.html
+
+    cordova.plugins.emiUnityAdsPlugin.setPrivacyAndConsent(
+
+    consent = true,
+    privacy = true,
+    useroveragelimit = true,
+
+    (result) => { console.log(result)  },
+    (error) => { console.log(error)
+
+    });
+
+// _setPrivacyAndConsent();
+}
+
+
+
+// set banner position:
+/*
+top-right
+top-center
+left
+center
+right
+bottom-center
+bottom-right
+*/
+
+let _loadBannerAd = () =>
+{
+    cordova.plugins.emiUnityAdsPlugin.loadBannerAd( placementId = "Banner_Android", position = "bottom-center");
+
+// _loadBannerAd();
+}
+
+
+let _showBannerAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.showBannerAd();
+
+// call _showBannerAd();
+}
+
+
+let _hideBannerAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.hideBannerAd();
+
+// call _hideBannerAd();
+}
+
+
+let _loadInterstitialAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.loadInterstitialAd( placementId = "Interstitial_Android" );
+
+// call _loadInterstitialAd();
+}
+
+
+
+let _showInterstitialAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.showInterstitialAd();
+
+// call _showInterstitialAd();
+}
+
+
+let _loadVideoAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.loadVideoAd( placementId = "Rewarded_Android" );
+
+// call _loadVideoAd();
+}
+
+
+let _showVideoAd = () =>
+{
+
+    cordova.plugins.emiUnityAdsPlugin.showVideoAd();
+
+// call _showVideoAd();
+}
+
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+
+
+// >>>>>>>>>>>>>> Handle get ad error response <<<<<<<<<<<<<<<
+
+
+
+let _debugLoadAdError = () =>
+{
+    cordova.plugins.emiUnityAdsPlugin.debugLoadAdError(debug = true);
+
+// call _debugLoadAdError();
+}
+
+// >>>>>>>>>> Example of banner ads <<<<<<<<<<<<<
+
+// https://forum.unity.com/threads/could-not-show-banner-due-to-no-fill-for-placement.610948/
+
+/*
+let _getLoadBannerAdError = () =>
+{
+    cordova.plugins.emiUnityAdsPlugin.loadBannerAd(
+    placementId = "Banner_Androidd",
+    position = "bottom-center",
+
+    (result) => {
+    alert(JSON.stringify(result))
+    },
+    (error) => {
+    alert(JSON.stringify(error))
+
+    });
+
+// call _getLoadBannerAdError();
+}
+*/
+
+///////////////////////////////////////////////
+//////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////
+// init device ready
+//////////////////////////////
 
 document.addEventListener("deviceready", function(){
 
-/////////////////////   Initializing the SDK
-	cordova.plugins.emiUnityAdsPlugin.unitySdkInitialize(unityGameID);
+///// call Data privacy and consent
+
+  _setPrivacyAndConsent();
+  _debugLoadAdError();
+
+  /////////////////////   Initializing the SDK
+
+  cordova.plugins.emiUnityAdsPlugin.unitySdkInitialize( unityGameID = "5215673" );
 
 
 /////////////////////  Event Initializing the SDK
 
 document.addEventListener('onInitializationComplete', () => {
 
-alert("on Sdk Initialization Complete");
+   event.value = ' on Sdk Initialization Complete';
+
 
 });
 
 document.addEventListener('onInitializationFailed', () => {
 
-alert("on Sdk Initialization Failed");
+    event.value = ' on Sdk Initialization Failed';
 
 });
 
@@ -37,75 +223,124 @@ alert("on Sdk Initialization Failed");
 
 
 
-////     Event Banner Ad load
+////     Event Banner Ad
+
+/*
+onBannerLoaded
+onBannerFailedToLoad
+onBannerClick
+onBannerLeftApplication
+*/
 
 document.addEventListener('onBannerLoaded', () => {
 
-alert("on Banner Loaded");
+    event.value += '\n on Banner Loaded';
 
 });
 
 
 document.addEventListener('onBannerFailedToLoad', () => {
 
-alert("on Banner Failed To Load");
+    event.value += '\n on Banner Failed To Load';
 
 });
 
 
+////     Event Interstitial Ad
 
+/*
+onUnityAdsAdLoaded.Interstitial
+onUnityAdsFailedToLoad.Interstitial
+onUnityAdsShowFailure.Interstitial
+onUnityAdsShowStart.Interstitial
+onUnityAdsShowClick.Interstitial
+onUnityAdsShowComplete.Interstitial
+onUnityAdsShowSkipped.Interstitial
+*/
 
-
-////     Event Interstitial Ad load
 
 document.addEventListener('onUnityAdsAdLoaded.Interstitial', () => {
 
-alert("on Unity Ads Ad Loaded Interstitial");
+    event.value += '\n on Unity Ads Ad Loaded Interstitial';
 
 });
 
 
 document.addEventListener('onUnityAdsFailedToLoad.Interstitial', () => {
 
-alert("on Unity Ads Failed To Load Interstitial");
+    event.value += '\n on Unity Ads Failed To Load Interstitial';
+
+});
+
+document.addEventListener('onUnityAdsShowComplete.Interstitial', () => {
+
+   event.value += '\n Give content to the user';
 
 });
 
 
 
+////     Event Video Ad
 
-
-
-
-////     Event Video Ad load
+/*
+onUnityAdsAdLoaded.video
+onUnityAdsFailedToLoad.video
+onUnityAdsShowFailure.video
+onUnityAdsShowStart.video
+onUnityAdsShowClick.video
+onUnityAdsShowComplete.video
+onUnityAdsShowSkipped.video
+*/
 
 document.addEventListener('onUnityAdsAdLoaded.video', () => {
 
-alert("on Unity Ads Ad Loaded video");
+    event.value += '\n on Unity Ads Ad Loaded video';
 
 });
-
 
 document.addEventListener('onUnityAdsFailedToLoad.video', () => {
 
-alert("on Unity Ads Failed To Load video");
+    event.value += '\n on Unity Ads Failed To Load video';
+
+});
+
+document.addEventListener('onUnityAdsShowComplete.video', () => {
+
+    event.value += '\n Give content to the user';
 
 });
 
 
 
+// call _loadBannerAd();
+// call _showBannerAd();
+// call _hideBannerAd();
+// call _loadInterstitialAd();
+// call _showInterstitialAd();
+// call _loadVideoAd();
+// call _showVideoAd();
 
 
 }, false);
 </script>
 
-<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showBannerAd(bannerPlacementId);">Load a Show Banner Ad</button></p>
-<p><button onclick="cordova.plugins.emiUnityAdsPlugin.hideBannerAd();">Hide Banner Ad</button></p>
-
-<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showInterstitialAd(InterstitialPlacementId);"> Load a Show Interstitial Ad</button></p>
 
 
-<p><button onclick="cordova.plugins.emiUnityAdsPlugin.showVideoAd(videoPlacementId);"> Show Video Ad</button></p>
+
+
+
+<p><button onclick="_loadBannerAd();"> _loadBannerAd </button></p>
+<p><button onclick="_showBannerAd();"> _showBannerAd </button></p>
+<p><button onclick="_hideBannerAd();"> _hideBannerAd </button></p>
+<p><button onclick="_loadInterstitialAd();"> _loadInterstitialAd </button></p>
+<p><button onclick="_showInterstitialAd();"> _showInterstitialAd </button></p>
+<p><button onclick="_loadVideoAd();"> _loadVideoAd </button></p>
+<p><button onclick="_showVideoAd();"> _showVideoAd </button></p>
+
+<p><button onclick="_debugLoadAdError();"> __debugLoadAdError </button></p>
+
+<p><button onclick="cleanText();"> clean Text </button></p>
+
 
 
 </body>
