@@ -38,10 +38,6 @@ https://user-images.githubusercontent.com/78555833/228381348-15b92a53-0e24-437d-
 ## Installation
 
 ```sh
-cordova plugin add emi-indo-cordova-plugin-unityads
-```
-### Or
-```sh
 cordova plugin add https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads
 ```
 ## Remove
@@ -52,7 +48,9 @@ cordova plugin rm emi-indo-cordova-plugin-unityads
 
 ## deviceready
 
-[Example ](https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads/blob/main/example/index.html) - index.html:
+[New documentation ](https://github.com/EMI-INDO/emi-indo-cordova-plugin-unityads/blob/main/example/index.html) - index.html:
+
+## Below is the old documentation
 
 ```sh
 // Initializing the SDK in Android
